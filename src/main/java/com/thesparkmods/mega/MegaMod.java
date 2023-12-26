@@ -20,9 +20,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
-@Mod(modid = "mm", name = "Mega Mod", version = "1.0")
+@Mod(modid = "megablue", name = "Mega Mod", version = "1.0")
 public class MegaMod {
-	
+
 	public static Item bluestoneDust;
 	public static Item bluestoneIngot;
 	public static Item bluestoneSword;
@@ -30,9 +30,9 @@ public class MegaMod {
 	public static Item bluestoneSpade;
 	public static Item bluestoneAxe;
 	public static Block bluestoneBlock;
-	
+
 	public static Item.ToolMaterial blueToolMaterial = EnumHelper.addToolMaterial("blueToolMaterial", 30, 5000, 15.0F, 10.0F, 45);
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		bluestoneDust = new BluestoneDust().setUnlocalizedName("BluestoneDust").setCreativeTab(tabBluestoneMod).setTextureName("mm:bluedust");
@@ -50,14 +50,14 @@ public class MegaMod {
 		bluestoneBlock = new BluestoneBlock(Material.iron).setBlockName("BluestoneBlock").setCreativeTab(tabBluestoneMod).setBlockTextureName("mm:bluestoneblock");
 		GameRegistry.registerBlock(bluestoneBlock, bluestoneBlock.getUnlocalizedName().substring(5));
 	}
-	
+
 	@EventHandler
 	public void inti(FMLInitializationEvent event){
 		GameRegistry.addRecipe(new ItemStack(bluestoneDust),new Object[]{"LLL",
 				                                                         "LRL",
 				                                                         "LLL", 'L',Blocks.lapis_block, 'R',Items.redstone});
 		GameRegistry.addSmelting(bluestoneDust, new ItemStack(bluestoneIngot), 25f);
-		
+
 		GameRegistry.addRecipe(new ItemStack(bluestonePickaxe),new Object[]{"KKK",
                                                                             " S ",
                                                                             " S ", 'K',bluestoneBlock, 'S',Items.stick});
@@ -74,10 +74,10 @@ public class MegaMod {
 				                                                           "BBB",
 				                                                           "BBB", 'B',bluestoneIngot});
 	}
-	
+
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
-		
+
 	}
 	public static CreativeTabs tabBluestoneMod = new CreativeTabs("tabBluestoneMod"){
 		@Override
